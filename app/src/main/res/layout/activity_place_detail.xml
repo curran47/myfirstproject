@@ -36,8 +36,5 @@
             android:layout_below="@id/rv_photo_id">
 
         </WebView>
-
-
-
 </RelativeLayout>
 </androidx.core.widget.NestedScrollView>
