@@ -11,6 +11,7 @@
     android:layout_height="match_parent">
 
         <TextView
+
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -19,11 +20,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Scroll For More Details" />
+            android:text="More Details" />
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="12dp"
             android:id="@+id/rv_photo_id"
-            android:layout_marginTop="10dp"
-            android:layout_margin="3dp"
             android:layout_below="@+id/tv_photos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -32,14 +32,15 @@
             android:id="@+id/tv_photos1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="" />
+            android:layout_marginRight="3dp"
+            android:layout_marginLeft="3dp"
+             />
 
         <WebView
             android:id="@+id/webview"
-            android:layout_margin="4dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
             android:layout_marginTop="12dp"
             android:layout_gravity="center_horizontal"
             android:layout_width="match_parent"

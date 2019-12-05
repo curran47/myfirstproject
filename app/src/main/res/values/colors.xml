@@ -5,4 +5,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="foregorund_material_light">#111010</color>
     <color name="transparent">#00777777</color>
+    <color name="lightgrey">#A7A4A5</color>
 </resources>
