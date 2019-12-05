@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "462405067101",
+    "firebase_url": "https://nanovacationke.firebaseio.com",
+    "project_id": "nanovacationke",
+    "storage_bucket": "nanovacationke.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462405067101:android:edb9d6d683d9f339cc48b4",
+        "android_client_info": {
+          "package_name": "com.example.nanovacationke"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "462405067101-c7rpob474kcrgbgmvsqa48qj3e3pv0vq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nanovacationke",
+            "certificate_hash": "cc348c565f4b3c9eba03f733267677e3399cdf6e"
+          }
+        },
+        {
+          "client_id": "462405067101-q1eej4nvto3c9kng6lrj8nmu1phum9go.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaaN7GZ_MF60bfueN05KCiEdE6ZPZEIH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "462405067101-q1eej4nvto3c9kng6lrj8nmu1phum9go.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
