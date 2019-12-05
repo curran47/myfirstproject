@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.TextView;
 
 
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -25,6 +26,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
     FirebaseRecyclerAdapter<Photosconstructor, DetailViewHolder> adapter;
     private RecyclerView.LayoutManager layoutManager;
     WebView webView;
+    TextView textView;
 
 
     @Override
@@ -36,6 +38,8 @@ public class PlaceDetailActivity extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance();
         imagelist = mDatabase.getReference("PlaceDetail");
+
+        textView=findViewById(R.id.tv_photos1);
 
         webView=findViewById(R.id.webview);
         webView.getSettings().setJavaScriptEnabled(true);
@@ -67,11 +71,12 @@ public class PlaceDetailActivity extends AppCompatActivity {
             @Override
             protected void populateViewHolder(DetailViewHolder detailViewHolder, Photosconstructor photosconstructor, int i) {
 
-                detailViewHolder.txtdetails.setText(photosconstructor.getText());
+
                 Picasso.get().load(photosconstructor.getImage1()).into(detailViewHolder.img_place);
                 Picasso.get().load(photosconstructor.getImage2()).into(detailViewHolder.imgplace2);
                 Picasso.get().load(photosconstructor.getImage3()).into(detailViewHolder.imgplace3);
                 Picasso.get().load(photosconstructor.getImage4()).into(detailViewHolder.imgplace4);
+                textView.setText(photosconstructor.getText());
                 webView.loadUrl(photosconstructor.getButton());
 
 

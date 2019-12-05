@@ -18,22 +18,33 @@
             android:id="@+id/tv_photos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="More Photos" />
+            android:layout_centerHorizontal="true"
+            android:text="Scroll For More Details" />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_photo_id"
             android:layout_marginTop="10dp"
-            android:layout_margin="12dp"
+            android:layout_margin="3dp"
             android:layout_below="@+id/tv_photos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_below="@id/rv_photo_id"
+            android:id="@+id/tv_photos1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="" />
+
         <WebView
             android:id="@+id/webview"
+            android:layout_margin="4dp"
             android:layout_marginTop="12dp"
             android:layout_gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/rv_photo_id">
+            android:layout_below="@id/tv_photos1">
 
         </WebView>
 </RelativeLayout>

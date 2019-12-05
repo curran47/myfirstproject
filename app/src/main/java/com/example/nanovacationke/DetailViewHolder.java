@@ -11,12 +11,10 @@ import androidx.viewpager.widget.ViewPager;
 
 public class DetailViewHolder extends RecyclerView.ViewHolder {
 
-    public TextView txtdetails;
+
     public ImageView img_place,imgplace2,imgplace3,imgplace4;
-    public Button siteurl;
     public DetailViewHolder(@NonNull View itemView) {
         super(itemView);
-        txtdetails = itemView.findViewById(R.id.tv_photos1);
         img_place = itemView.findViewById(R.id.img_photo_id1);
         imgplace2 = itemView.findViewById(R.id.img_photo_id2);
         imgplace3 = itemView.findViewById(R.id.img_photo_id3);
