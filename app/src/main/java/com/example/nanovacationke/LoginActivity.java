@@ -14,11 +14,19 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText edtemail1 ,edtpassword1;
     private FirebaseAuth mAuthl;
     private ProgressBar bar1;
+    ArrayList<AdminsConstructor> admins;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +37,12 @@ public class LoginActivity extends AppCompatActivity {
         bar1=findViewById(R.id.progressbar1);
 
         mAuthl = FirebaseAuth.getInstance();
+        admins = new ArrayList<>();
 
 
     }
     public void signin(final View view) {
-        String email1=edtemail1.getText().toString().trim();
+        final String email1=edtemail1.getText().toString().trim();
         String password1=edtpassword1.getText().toString().trim();
         if (email1.isEmpty()){
             edtemail1.setError("please enter email");
@@ -56,10 +65,35 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 bar1.setVisibility(View.INVISIBLE);
                 if (task.isSuccessful()){
-                    Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                    Toast.makeText(LoginActivity.this, "Log in up successfull", Toast.LENGTH_SHORT).show();
+                    DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Admins");
+                    reference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for (DataSnapshot snap : dataSnapshot.getChildren()){
+                                AdminsConstructor admin = snap.getValue(AdminsConstructor.class);
+                                admins.add(admin);
+                                String arafa = admin.getEmail();
+
+                                Toast.makeText(LoginActivity.this, "Log in up successfull", Toast.LENGTH_SHORT).show();
+                                if (arafa.equals(email1)){
+                                    Intent intent = new Intent(LoginActivity.this,AdminUploadActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    startActivity(intent);
+                                }else {
+                                    Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    startActivity(intent);
+                                }
+                            }
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            Toast.makeText(LoginActivity.this, "DB Locked", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
                 }else {
                     Toast.makeText(LoginActivity.this, "Authentication Failed ", Toast.LENGTH_SHORT).show();
                 }

@@ -36,7 +36,6 @@
             android:layout_marginRight="3dp"
             android:layout_marginLeft="3dp"
              />
-
         <WebView
             android:id="@+id/webview"
             android:layout_marginLeft="3dp"
