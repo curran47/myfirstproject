@@ -15,5 +15,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void ranch(View view) {
+        Intent intent=new Intent(getApplicationContext(),HomeActivity.class);
+        startActivity(intent);
     }
+}
 

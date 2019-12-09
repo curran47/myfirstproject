@@ -1,9 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AdminDetailUploadActivity">
+    <TextView
+    android:textSize="20sp"
+    android:id="@+id/tv_admin1"
+    android:text="Place Details"
+    android:layout_margin="16dp"
+        android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textStyle="bold"
+    android:textColor="@color/colorPrimaryDark"
+    android:gravity="center_horizontal"/>
+    <ImageView
+        android:background="@drawable/ic_image_black_24dp"
+    android:id="@+id/img_admin2"
+    android:layout_centerHorizontal="true"
+    android:layout_below="@id/tv_admin1"
+    android:layout_width="400dp"
+    android:layout_height="300dp"/>
+    <EditText
+        android:textColorHint="@color/colorPrimaryDark"
+        android:hint="Enter Place Description"
+        android:padding="12dp"
+    android:id="@+id/edt_admin1"
+    android:layout_margin="4dp"
+    android:layout_below="@id/img_admin2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+    <EditText
+        android:layout_marginTop="20dp"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:hint="Enter Site Link"
+        android:padding="12dp"
+    android:id="@+id/edt_admin2"
+    android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+    android:layout_below="@id/edt_admin1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+    <Button
+        android:layout_marginTop="8dp"
+        android:id="@+id/btn_admin"
+        android:layout_below="@id/edt_admin2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="upload"
+        android:gravity="center_horizontal"
+        style="@style/Base.Widget.AppCompat.Button.Colored"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                     startActivity(intent);
                                 }else {
-                                    Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                                    Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                     startActivity(intent);
                                 }
@@ -101,5 +101,10 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void register(View view) {
+        Intent intentr=new Intent(getApplicationContext(),RegisterActivity.class);
+        startActivity(intentr);
     }
 }

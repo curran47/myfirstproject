@@ -8,13 +8,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="171dp"
-        android:layout_height="316dp"
-        android:layout_gravity="start"
-        android:background="@color/lightgrey"
-        app:menu="@menu/itemmenu"
-        />
 <androidx.recyclerview.widget.RecyclerView
     tools:context=".HomeActivity"
     android:layout_width="match_parent"

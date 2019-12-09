@@ -19,17 +19,17 @@
             <EditText
                 android:id="@+id/edtEmailA"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:inputType="textEmailAddress"
                 android:ems="15"
-                android:background="@color/transparent"
+                android:background="@drawable/edtregbackground"
                 android:drawablePadding="12dp"
                 android:padding="8dp"
                 android:hint="Email"
-                android:textColorHint="#0C0C0C"
+                android:textColorHint="#FFFFFF"
                 android:maxLines="1"
                 android:drawableLeft="@drawable/ic_person_black_24dp"
-                android:layout_marginTop="180dp"/>
+                android:layout_marginTop="190dp"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -38,9 +38,9 @@
             <EditText
                 android:id="@+id/edtpwordA"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@color/transparent"
+                android:layout_height="60dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/edtregbackground"
                 android:drawableLeft="@drawable/ic_lock_open_black_24dp"
                 android:drawablePadding="12dp"
                 android:ems="10"
@@ -48,7 +48,7 @@
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:padding="8dp"
-                android:textColorHint="#070707"
+                android:textColorHint="#FFFFFF"
                 android:autofillHints="" />
             <View
                 android:layout_width="match_parent"

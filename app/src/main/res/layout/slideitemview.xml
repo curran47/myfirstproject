@@ -8,16 +8,39 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
+    <ViewFlipper
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoStart="true"
+        android:flipInterval="2000">
     <ImageView
         android:background="@color/transparent"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:layout_margin="5dp"
-        android:id="@+id/img_view1"
+        android:id="@+id/img_view1s"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:clickable="true"
         android:focusable="true" />
-
+        <ImageView
+            android:background="@color/transparent"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:layout_margin="5dp"
+            android:id="@+id/img_view2s"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:clickable="true"
+            android:focusable="true" />
+        <ImageView
+            android:background="@color/transparent"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:layout_margin="5dp"
+            android:id="@+id/img_view3s"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:clickable="true"
+            android:focusable="true" />
+</ViewFlipper>
     <TextView
         android:id="@+id/tv_itemview_id"
         android:layout_width="match_parent"

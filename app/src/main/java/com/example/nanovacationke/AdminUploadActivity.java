@@ -2,7 +2,6 @@ package com.example.nanovacationke;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.ImageDecoder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -14,12 +13,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 
 
@@ -30,10 +33,12 @@ public class AdminUploadActivity extends AppCompatActivity {
     String storagepath="placesimages/";
     String mdatabasepath="CategoryPlace";
     Uri uri;
+    String downloadUrl;
     private StorageReference mstorageReference;
     private DatabaseReference mdatabaseReference;
     private ProgressDialog loadingBar;
     int  IMAGE_REQUEST_CODE=1;
+    private StorageTask mUploadTask;
 
 
 
@@ -60,8 +65,6 @@ public class AdminUploadActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 uploadDataToFirebase();
-
-
             }
         });
         mstorageReference= FirebaseStorage.getInstance().getReference();
@@ -70,20 +73,48 @@ public class AdminUploadActivity extends AppCompatActivity {
 
 }
 
-    private void uploadDataToFirebase() {
+    private void uploadDataToFirebase(){
         if (uri!=null){
             loadingBar.setTitle("Image is loading...");
             loadingBar.show();
-            StorageReference storageReference2=mstorageReference.child(storagepath+System.currentTimeMillis()+".jpg");
+            final StorageReference storageReference2=mstorageReference.child(storagepath+System.currentTimeMillis()+".jpg");
+            mUploadTask = storageReference2.putFile(uri);
+
             storageReference2.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    String pplacename=edtadmin.getText().toString().trim();
-                    loadingBar.dismiss();
-                    Toast.makeText(AdminUploadActivity.this, "image uploaded succesfully", Toast.LENGTH_SHORT).show();
-                    imageuploadconstructor imageuploadconstructor=new imageuploadconstructor(pplacename,taskSnapshot.getUploadSessionUri().toString());
-                    String imageuploadid=mdatabaseReference.push().getKey();
-                    mdatabaseReference.child(imageuploadid).setValue(imageuploadconstructor);
+
+
+                    Task<Uri> urlTask = mUploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                        @Override
+                        public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                            if (!task.isSuccessful()) {
+                                throw task.getException();
+                            }
+
+                            // Continue with the task to get the download URL
+                            return storageReference2.getDownloadUrl();
+                        }
+                    }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Uri> task) {
+                            if (task.isSuccessful()) {
+                                Uri downloadUri = task.getResult();
+                                downloadUrl = downloadUri.toString();
+                                String pplacename=edtadmin.getText().toString().trim();
+                                loadingBar.dismiss();
+                                Toast.makeText(AdminUploadActivity.this, "image uploaded succesfully", Toast.LENGTH_SHORT).show();
+                                Imageuploadconstructor upload = new Imageuploadconstructor(downloadUrl, pplacename);
+                                mdatabaseReference.push().getKey();
+//                                mdatabaseReference.child("CategoryPlace").setValue(upload);
+                                mdatabaseReference.child(System.currentTimeMillis()+"").setValue(upload);
+
+                            } else {
+                                // Handle failures
+                                // ...
+                            }
+                        }
+                    });
 
                 }
             }).addOnFailureListener(new OnFailureListener() {

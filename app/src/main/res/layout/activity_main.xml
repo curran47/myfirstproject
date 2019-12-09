@@ -8,35 +8,144 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:layout_marginLeft="110dp"
+        android:gravity="center_horizontal"
         android:textStyle="bold"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/tv_welcome"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:text="Welcome"
         android:textColor="#0A0101"
-        android:textSize="70sp" />
+        android:textSize="50sp" />
+    <LinearLayout
+        android:id="@+id/linearlayout1"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="horizontal">
 
     <androidx.cardview.widget.CardView
-        android:onClick="intent"
+        android:onClick="ranch"
+        android:layout_marginLeft="30dp"
         android:layout_below="@id/tv_welcome"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="5dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:layout_width="250dp"
-        android:layout_height="220dp">
+        android:layout_marginTop="100dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
             <ImageView
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/ic_home_black_24dp"
+                android:layout_gravity="left"
+                android:background="@drawable/conservancy"
                 android:layout_margin="3dp"
                 android:id="@+id/img_view1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-
-            </LinearLayout>
+                android:layout_width="120dp"
+                android:layout_height="120dp"/>
+        <TextView
+            android:textColor="@color/colorPrimaryDark"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:text="Wildlife Conservancy"/>
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_marginLeft="30dp"
+            android:layout_below="@id/tv_welcome"
+            app:cardCornerRadius="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:layout_width="160dp"
+            android:layout_height="160dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:background="@drawable/hotel"
+                    android:layout_margin="3dp"
+                    android:id="@+id/img_view2"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"/>
+                <TextView
+                    android:textColor="@color/colorPrimaryDark"
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:text="Couts/Restaurant/Lodging"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_below="@id/linearlayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginLeft="30dp"
+            android:layout_below="@id/tv_welcome"
+            app:cardCornerRadius="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            android:layout_width="160dp"
+            android:layout_height="160dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:background="@drawable/camping"
+                    android:layout_margin="3dp"
+                    android:id="@+id/img_view3"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"/>
+                <TextView
+                    android:textColor="@color/colorPrimaryDark"
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:text="Camping"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_marginLeft="30dp"
+            android:layout_below="@id/tv_welcome"
+            app:cardCornerRadius="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            android:layout_width="160dp"
+            android:layout_height="160dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:background="@drawable/conservancy"
+                    android:layout_margin="3dp"
+                    android:id="@+id/img_view4"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"/>
+                <TextView
+                    android:textColor="@color/colorPrimaryDark"
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:text="Ranch/Farms"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
 </RelativeLayout>
